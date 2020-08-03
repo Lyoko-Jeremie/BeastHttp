@@ -44,8 +44,32 @@ auto make_404(const beast::http::request<RequestBody>& request,
 }
 
 static boost::asio::io_context ioc;
-static boost::asio::posix::stream_descriptor out{ioc, ::dup(STDERR_FILENO)};
+//static boost::asio::posix::stream_descriptor out{ioc, ::dup(STDERR_FILENO)};
 static boost::asio::signal_set sig_set(ioc, SIGINT, SIGTERM);
+
+// https://stackoverflow.com/questions/14001387/how-to-use-asio-with-device-files
+#ifdef BOOST_ASIO_HAS_POSIX_STREAM_DESCRIPTOR
+
+#include <boost/asio/posix/stream_descriptor.hpp>
+
+typedef boost::asio::posix::stream_descriptor stream_descriptor;
+static stream_descriptor out{ioc, ::dup(STDERR_FILENO)};
+
+#else // BOOST_ASIO_HAS_POSIX_STREAM_DESCRIPTOR
+
+#include <boost/asio/windows/stream_handle.hpp>
+
+typedef boost::asio::windows::stream_handle stream_descriptor;
+// https://stackoverflow.com/questions/341817/is-there-a-replacement-for-unistd-h-for-windows-visual-c
+// https://stackoverflow.com/a/826027/3548568
+// https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/dup-dup2?view=vs-2019
+#include <io.h>
+
+// http://doc.okbase.net/mmoaay/archive/115071.html
+// https://docs.microsoft.com/en-us/windows/console/getstdhandle
+static stream_descriptor out{ioc, GetStdHandle(STD_ERROR_HANDLE)};
+
+#endif // BOOST_ASIO_HAS_POSIX_STREAM_DESCRIPTOR
 
 int main()
 {
@@ -72,7 +96,7 @@ int main()
                     out, "From:", from, "Info:", system_error_code.message());
 
         // I/O context will be stopped, if code value is EADDRINUSE or EACCES
-        if (system_error_code == boost::system::errc::address_in_use or
+        if (system_error_code == boost::system::errc::address_in_use ||
                 system_error_code == boost::system::errc::permission_denied)
             ioc.stop();
     };
