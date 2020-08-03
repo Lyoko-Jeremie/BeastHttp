@@ -206,7 +206,7 @@ session<BEASTHTTP_REACTOR_SESSION_TMPL_ATTRIBUTES>::flesh::member(
         typename std::enable_if<
         base::traits::TryInvoke<Handler,
         void(boost::system::error_code,
-             boost::string_view)>::value and
+             boost::string_view)>::value &&
         std::is_constructible<on_error_type, Handler, Allocator>::value, int>::type)
 {
     on_error_ = on_error_type(std::move(handler), alloc);
@@ -219,7 +219,7 @@ session<BEASTHTTP_REACTOR_SESSION_TMPL_ATTRIBUTES>::flesh::member(
         typename option::on_timer_t, Handler& handler, const Allocator& alloc,
         typename std::enable_if<
         base::traits::TryInvoke<Handler,
-        void(context_type)>::value and
+        void(context_type)>::value &&
         std::is_constructible<on_timer_type, Handler, Allocator>::value, int>::type)
 {
     on_timer_ = on_timer_type(std::move(handler), alloc);
@@ -289,7 +289,7 @@ session<BEASTHTTP_REACTOR_SESSION_TMPL_ATTRIBUTES>::flesh::flesh(
         typename std::enable_if<
         base::traits::TryInvoke<_OnError,
         void(boost::system::error_code,
-             boost::string_view)>::value and
+             boost::string_view)>::value &&
         base::traits::TryInvoke<_OnTimer,
         void(context_type)>::value, int>::type)
     : base::strand_stream{socket.get_executor()},

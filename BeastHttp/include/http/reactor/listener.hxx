@@ -88,7 +88,7 @@ public:
     template<class _OnAccept, class _OnError>
     explicit
     listener(boost::asio::io_context& ctx, _OnAccept&& on_accept, _OnError&& on_error,
-             typename std::enable_if<base::traits::TryInvoke<_OnAccept, void(socket_type)>::value and
+             typename std::enable_if<base::traits::TryInvoke<_OnAccept, void(socket_type)>::value &&
              base::traits::TryInvoke<_OnError, void(
                  boost::system::error_code, boost::string_view)>::value, int>::type = 0);
 
@@ -102,7 +102,7 @@ public:
     explicit
     listener(boost::asio::io_context& acceptor_ctx, boost::asio::io_context& socket_ctx,
              _OnAccept&& on_accept, _OnError&& on_error, typename std::enable_if<base::traits::TryInvoke<
-             _OnAccept, void(socket_type)>::value and base::traits::TryInvoke<_OnError, void(
+             _OnAccept, void(socket_type)>::value && base::traits::TryInvoke<_OnError, void(
                  boost::system::error_code, boost::string_view)>::value, int>::type = 0);
 
 private:

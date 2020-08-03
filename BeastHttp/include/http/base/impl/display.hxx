@@ -67,7 +67,7 @@ printline(Stream& stream, Arg const& arg, Args const&... args)
 template<class Stream, class... Args>
 auto
 print(Stream& stream, Args const&... args)
--> decltype (std::enable_if_t<(... and traits::TryLeftShift<Stream, void(Args)>::value), int>{}, stream.flush())
+-> decltype (std::enable_if_t<(... && traits::TryLeftShift<Stream, void(Args)>::value), int>{}, stream.flush())
 {
     (stream << ... << args);
     return stream.flush();
@@ -76,7 +76,7 @@ print(Stream& stream, Args const&... args)
 template<class Stream, class... Args>
 auto
 printline(Stream& stream, Args const&... args)
--> decltype (std::enable_if_t<(... and traits::TryLeftShift<Stream, void(Args)>::value), int>{}, stream.flush())
+-> decltype (std::enable_if_t<(... && traits::TryLeftShift<Stream, void(Args)>::value), int>{}, stream.flush())
 {
     (stream << ... << args) << '\n';
     return stream.flush();

@@ -109,7 +109,7 @@ template<class _OnAccept, class _OnError>
 listener<BEASTHTTP_REACTOR_LISTENER_TMPL_ATTRIBUTES>::listener(
         boost::asio::io_context& ctx, _OnAccept&& on_accept, _OnError&& on_error,
         typename std::enable_if<base::traits::TryInvoke<
-        _OnAccept, void(socket_type)>::value and
+        _OnAccept, void(socket_type)>::value &&
         base::traits::TryInvoke<_OnError, void(
             boost::system::error_code, boost::string_view)>::value, int>::type)
     : base::strand_stream{ctx.get_executor()},
@@ -138,7 +138,7 @@ template<class _OnAccept, class _OnError>
 listener<BEASTHTTP_REACTOR_LISTENER_TMPL_ATTRIBUTES>::listener(
         boost::asio::io_context& acceptor_ctx, boost::asio::io_context& socket_ctx, _OnAccept&& on_accept, _OnError&& on_error,
         typename std::enable_if<base::traits::TryInvoke<
-        _OnAccept, void(socket_type)>::value and
+        _OnAccept, void(socket_type)>::value &&
         base::traits::TryInvoke<_OnError, void(
             boost::system::error_code, boost::string_view)>::value, int>::type)
     : base::strand_stream{acceptor_ctx.get_executor()},

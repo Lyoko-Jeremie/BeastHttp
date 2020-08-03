@@ -150,7 +150,7 @@ template<class _OnDetect, class _OnError>
 detect<BEASTHTTP_COMMON_DETECT_TMPL_ATTRIBUTES>::detect(
         socket_type&& socket, _OnDetect&& on_detect, _OnError&& on_error,
         typename std::enable_if<base::traits::TryInvoke<
-        _OnDetect, void(socket_type&&, buffer_type&&, boost::tribool)>::value and
+        _OnDetect, void(socket_type&&, buffer_type&&, boost::tribool)>::value &&
         base::traits::TryInvoke<_OnError, void(
             boost::system::error_code, boost::string_view)>::value, int>::type)
     : base::strand_stream(socket.get_executor()),
@@ -167,9 +167,9 @@ template<class _OnDetect, class _OnError, class _OnTimer>
 detect<BEASTHTTP_COMMON_DETECT_TMPL_ATTRIBUTES>::detect(
         socket_type&& socket, _OnDetect&& on_detect, _OnError&& on_error, _OnTimer&& on_timer,
         typename std::enable_if<base::traits::TryInvoke<
-        _OnDetect, void(socket_type&&, buffer_type&&, boost::tribool)>::value and
+        _OnDetect, void(socket_type&&, buffer_type&&, boost::tribool)>::value &&
         base::traits::TryInvoke<_OnError, void(
-            boost::system::error_code, boost::string_view)>::value and
+            boost::system::error_code, boost::string_view)>::value &&
         base::traits::TryInvoke<_OnTimer, void(
             std::reference_wrapper<socket_type>)>::value, int>::type)
     : base::strand_stream(socket.get_executor()),

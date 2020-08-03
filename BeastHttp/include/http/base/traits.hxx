@@ -680,7 +680,7 @@ struct TryInvokeConjunction
         : TryInvokeConjunction<FnCount - 1, Sig1, Sig2, Fn...>
 {
     static constexpr bool value =
-            TryInvoke<F, Sig1>::value and TryInvokeConjunction<FnCount - 1, Sig1, Sig2, Fn...>::value;
+            TryInvoke<F, Sig1>::value && TryInvokeConjunction<FnCount - 1, Sig1, Sig2, Fn...>::value;
 };
 
 template<class Sig1, class Sig2, class F>

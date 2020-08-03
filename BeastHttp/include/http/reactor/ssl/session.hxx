@@ -288,7 +288,7 @@ private:
                typename std::enable_if<
                base::traits::TryInvoke<Handler,
                void(boost::system::error_code,
-                    boost::string_view)>::value and
+                    boost::string_view)>::value &&
                std::is_constructible<on_error_type, Handler, Allocator>::value, int>::type = 0);
 
         template<class Handler, class Allocator>
@@ -296,7 +296,7 @@ private:
         member(typename option::on_timer_t, Handler&, const Allocator&,
                typename std::enable_if<
                base::traits::TryInvoke<Handler,
-               void(context_type)>::value and
+               void(context_type)>::value &&
                std::is_constructible<on_timer_type, Handler, Allocator>::value, int>::type = 0);
 
         socket_type&
@@ -365,7 +365,7 @@ private:
               _OnError&&,
               typename std::enable_if<
               base::traits::TryInvoke<_OnHandshake,
-              void(context_type)>::value and
+              void(context_type)>::value &&
               base::traits::TryInvoke<_OnError,
               void(boost::system::error_code,
                    boost::string_view)>::value, int>::type = 0);
@@ -384,10 +384,10 @@ private:
               _OnTimer&&,
               typename std::enable_if<
               base::traits::TryInvoke<_OnHandshake,
-              void(context_type)>::value and
+              void(context_type)>::value &&
               base::traits::TryInvoke<_OnError,
               void(boost::system::error_code,
-                   boost::string_view)>::value and
+                   boost::string_view)>::value &&
               base::traits::TryInvoke<_OnTimer,
               void(context_type)>::value, int>::type = 0);
 
@@ -535,7 +535,7 @@ private:
                                 typename option::on_error_t, handler_type&, typename std::enable_if<
                                     base::traits::TryInvoke<handler_type,
                                     void(boost::system::error_code,
-                                         boost::string_view)>::value and
+                                         boost::string_view)>::value &&
                                 std::is_constructible<on_error_type, handler_type, allocator_type>::value, int>::type)>(
                                 &Flesh::template member<handler_type, allocator_type>),
                             flesh_p_->shared_from_this(), arg, std::forward<Handler>(handler), std::forward<Allocator>(alloc), 0));
@@ -557,7 +557,7 @@ private:
                                 typename option::on_timer_t, handler_type&,
                                     typename std::enable_if<
                                     base::traits::TryInvoke<handler_type,
-                                    void(context_type)>::value and
+                                    void(context_type)>::value &&
                                 std::is_constructible<on_timer_type, handler_type, allocator_type>::value, int>::type)>(
                                 &Flesh::template member<handler_type, allocator_type>),
                             flesh_p_->shared_from_this(), arg, std::forward<Handler>(handler), std::forward<Allocator>(alloc), 0));

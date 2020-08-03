@@ -123,8 +123,8 @@ public:
     using container_type = Container<entry_type>;
 
     static_assert (traits::HasRequestType<session_type, void>::value
-                   and traits::HasContextType<session_type, void>::value
-                   and traits::HasFleshType<session_type, void>::value,
+                   && traits::HasContextType<session_type, void>::value
+                      && traits::HasFleshType<session_type, void>::value,
                    "Invalid session type");
 
     BEASTHTTP_DECLARE_FRIEND_BASE_CB_EXECUTOR_CLASS
@@ -134,7 +134,7 @@ public:
     template<class F, class... Fn,
              typename = typename std::enable_if<
                  not std::is_same<typename std::decay<F>::type, self_type>::value
-                 and traits::TryInvokeConjunction<
+                 && traits::TryInvokeConjunction<
                      sizeof... (Fn), void (request_type, session_context, iterator_type),
                      void (request_type, session_context), F, Fn...>::value
                  >::type
