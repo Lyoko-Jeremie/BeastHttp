@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_BASE_IMPL_REGEX_HXX
+#ifndef BEASTHTTP_BASE_IMPL_REGEX_HXX
 #define BEASTHTTP_BASE_IMPL_REGEX_HXX
 
 namespace _0xdead4ead {

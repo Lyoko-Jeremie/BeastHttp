@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_BASE_IMPL_TIMER_HXX
+#ifndef BEASTHTTP_BASE_IMPL_TIMER_HXX
 #define BEASTHTTP_BASE_IMPL_TIMER_HXX
 
 #include <boost/asio/bind_executor.hpp>

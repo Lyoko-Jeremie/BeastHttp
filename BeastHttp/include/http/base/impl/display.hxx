@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_BASE_IMPL_DISPLAY_HXX
+#ifndef BEASTHTTP_BASE_IMPL_DISPLAY_HXX
 #define BEASTHTTP_BASE_IMPL_DISPLAY_HXX
 
 namespace _0xdead4ead {
@@ -34,7 +34,7 @@ printline(Stream& stream) -> decltype (stream.flush())
     return stream.flush();
 }
 
-#if not defined BEASTHTTP_CXX17_FOLD_EXPR
+#ifndef BEASTHTTP_CXX17_FOLD_EXPR
 template<class Stream, class Arg, class... Args>
 auto
 print(Stream& stream, Arg const& arg, Args const&... args)
@@ -90,7 +90,7 @@ print(Stream& stream, Arg const& arg, Args const&... args)
              traits::TryLeftShift<Stream, void(Arg)>::value, int>::type{}, stream.flush())
 {
     stream << arg;
-#if not defined __cpp_if_constexpr
+#ifndef __cpp_if_constexpr
     if (sizeof... (args) > 0) {
 #else
     if constexpr(sizeof... (args) > 0) {
@@ -109,7 +109,7 @@ printline(Stream& stream, Arg const& arg, Args const&... args)
              traits::TryLeftShift<Stream, void(Arg)>::value, int>::type{}, stream.flush())
 {
     stream << arg;
-#if not defined __cpp_if_constexpr
+#ifndef __cpp_if_constexpr
     if (sizeof... (args) > 0) {
 #else
     if constexpr(sizeof... (args) > 0) {

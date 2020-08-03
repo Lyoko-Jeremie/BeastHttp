@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_PARAM_HXX
+#ifndef BEASTHTTP_PARAM_HXX
 #define BEASTHTTP_PARAM_HXX
 
 #include <http/base/regex.hxx>

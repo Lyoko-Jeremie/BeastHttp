@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_LITERALS_HXX
+#ifndef BEASTHTTP_LITERALS_HXX
 #define BEASTHTTP_LITERALS_HXX
 
 #include <http/base/config.hxx>

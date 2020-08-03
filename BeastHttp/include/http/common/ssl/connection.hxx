@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_COMMON_SSL_CONNECTION_HXX
+#ifndef BEASTHTTP_COMMON_SSL_CONNECTION_HXX
 #define BEASTHTTP_COMMON_SSL_CONNECTION_HXX
 
 #include <http/base/beast/ssl_stream.hpp>

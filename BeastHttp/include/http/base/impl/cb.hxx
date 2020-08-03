@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_BASE_IMPL_CB_HXX
+#ifndef BEASTHTTP_BASE_IMPL_CB_HXX
 #define BEASTHTTP_BASE_IMPL_CB_HXX
 
 #include <http/base/config.hxx>
@@ -10,7 +10,7 @@ namespace http {
 namespace base {
 namespace cb {
 namespace detail {
-#if not defined BEASTHTTP_CXX17_IF_CONSTEXPR
+#ifndef BEASTHTTP_CXX17_IF_CONSTEXPR
 template<std::size_t value>
 using size_type = std::integral_constant<std::size_t, value>;
 
@@ -74,7 +74,7 @@ for_each(const std::tuple<Elements...>& tpl,
 }
 #endif // BEASTHTTP_CXX17_IF_CONSTEXPR
 
-#if not defined BEASTHTTP_CXX14_GENERIC_LAMBDAS
+#ifndef BEASTHTTP_CXX14_GENERIC_LAMBDAS
 template<class Container>
 struct cb_push_cxx11
 {
@@ -234,7 +234,7 @@ storage<Session, Entry, Container>::prepare(OnRequest&&... on_request)
                   decltype (tuple_cb) >::type>::value != 0,
                   "Oops...! tuple is empty.");
 
-#if not defined BEASTHTTP_CXX14_GENERIC_LAMBDAS
+#ifndef BEASTHTTP_CXX14_GENERIC_LAMBDAS
     detail::for_each<0>(tuple_cb,
                         detail::cb_push_cxx11<container_type>{_l},
                         detail::cb_push_fin_cxx11<container_type>{_l});

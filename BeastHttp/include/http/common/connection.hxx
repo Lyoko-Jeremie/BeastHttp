@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_COMMON_CONNECTION_HXX
+#ifndef BEASTHTTP_COMMON_CONNECTION_HXX
 #define BEASTHTTP_COMMON_CONNECTION_HXX
 
 #include <http/base/connection.hxx>

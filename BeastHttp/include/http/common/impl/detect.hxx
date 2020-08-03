@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_COMMON_IMPL_DETECT_HXX
+#ifndef BEASTHTTP_COMMON_IMPL_DETECT_HXX
 #define BEASTHTTP_COMMON_IMPL_DETECT_HXX
 
 #include <http/base/config.hxx>

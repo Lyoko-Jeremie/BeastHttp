@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_OUT_HXX
+#ifndef BEASTHTTP_OUT_HXX
 #define BEASTHTTP_OUT_HXX
 
 #include <http/base/display.hxx>

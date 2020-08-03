@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_REACTOR_LISTENER_HXX
+#ifndef BEASTHTTP_REACTOR_LISTENER_HXX
 #define BEASTHTTP_REACTOR_LISTENER_HXX
 
 #include <http/base/traits.hxx>

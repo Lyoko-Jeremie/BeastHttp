@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_BASE_REGEX_HXX
+#ifndef BEASTHTTP_BASE_REGEX_HXX
 #define BEASTHTTP_BASE_REGEX_HXX
 
 #include <regex>

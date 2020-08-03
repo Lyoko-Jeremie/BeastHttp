@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_BASE_TRAITS_HXX
+#ifndef BEASTHTTP_BASE_TRAITS_HXX
 #define BEASTHTTP_BASE_TRAITS_HXX
 
 #include <http/base/config.hxx>
@@ -142,7 +142,7 @@ struct conjunction<B1, B2, B3, Bn...>
 {
 };
 
-#if not defined BEASTHTTP_CXX14_GENERIC_LAMBDAS
+#ifndef BEASTHTTP_CXX14_GENERIC_LAMBDAS
 template<class R, class F, class... Args>
 struct try_invoke_cxx11 : is_invocable<F, R(Args...)>
 {

@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_BASE_IMPL_ROUTER_HXX
+#ifndef BEASTHTTP_BASE_IMPL_ROUTER_HXX
 #define BEASTHTTP_BASE_IMPL_ROUTER_HXX
 
 namespace _0xdead4ead {

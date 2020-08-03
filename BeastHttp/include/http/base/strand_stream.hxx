@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_BASE_STRAND_STREAM_HXX
+#ifndef BEASTHTTP_BASE_STRAND_STREAM_HXX
 #define BEASTHTTP_BASE_STRAND_STREAM_HXX
 
 #include <boost/asio/strand.hpp>

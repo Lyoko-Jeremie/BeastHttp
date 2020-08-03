@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_BASIC_ROUTER_HXX
+#ifndef BEASTHTTP_BASIC_ROUTER_HXX
 #define BEASTHTTP_BASIC_ROUTER_HXX
 
 #include <http/base/router.hxx>

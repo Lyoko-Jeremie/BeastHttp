@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_BASE_IMPL_CONNECTION_HXX
+#ifndef BEASTHTTP_BASE_IMPL_CONNECTION_HXX
 #define BEASTHTTP_BASE_IMPL_CONNECTION_HXX
 
 #include <boost/asio/bind_executor.hpp>

@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_BASE_IMPL_QUEUE_HXX
+#ifndef BEASTHTTP_BASE_IMPL_QUEUE_HXX
 #define BEASTHTTP_BASE_IMPL_QUEUE_HXX
 
 namespace _0xdead4ead {
@@ -56,7 +56,7 @@ queue<Flesh>::operator()(Response& response)
             impl_.do_write(response_);
         }
     };
-#if not defined __cpp_lib_make_unique
+#ifndef __cpp_lib_make_unique
     items_.push_back(std::unique_ptr<work_impl>(
                          new work_impl(impl_, std::move(response))));
 #else

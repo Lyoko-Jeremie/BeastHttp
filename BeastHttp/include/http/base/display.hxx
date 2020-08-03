@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_BASE_DISPLAY_HXX
+#ifndef BEASTHTTP_BASE_DISPLAY_HXX
 #define BEASTHTTP_BASE_DISPLAY_HXX
 
 #include <http/base/config.hxx>
@@ -26,7 +26,7 @@ template<const char, class Stream>
 auto
 printline(Stream& stream) -> decltype (stream.flush());
 
-#if not defined BEASTHTTP_CXX17_FOLD_EXPR
+#ifndef BEASTHTTP_CXX17_FOLD_EXPR
 template<class Stream, class Arg, class... Args>
 auto
 print(Stream& stream, Arg const& arg, Args const&... args)

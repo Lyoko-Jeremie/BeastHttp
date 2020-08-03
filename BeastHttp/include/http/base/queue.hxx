@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_BASE_QUEUE_HXX
+#ifndef BEASTHTTP_BASE_QUEUE_HXX
 #define BEASTHTTP_BASE_QUEUE_HXX
 
 #include <vector>

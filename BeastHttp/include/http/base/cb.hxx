@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_BASE_CB_HXX
+#ifndef BEASTHTTP_BASE_CB_HXX
 #define BEASTHTTP_BASE_CB_HXX
 
 #include <http/base/traits.hxx>

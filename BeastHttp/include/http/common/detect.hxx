@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_COMMON_DETECT_HXX
+#ifndef BEASTHTTP_COMMON_DETECT_HXX
 #define BEASTHTTP_COMMON_DETECT_HXX
 
 #include <http/base/traits.hxx>

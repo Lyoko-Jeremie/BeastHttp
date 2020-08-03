@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_BASE_TIMER_HXX
+#ifndef BEASTHTTP_BASE_TIMER_HXX
 #define BEASTHTTP_BASE_TIMER_HXX
 
 #include <http/base/traits.hxx>

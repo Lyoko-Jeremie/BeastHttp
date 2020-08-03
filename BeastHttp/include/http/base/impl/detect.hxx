@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_BASE_IMPL_DETECT_HXX
+#ifndef BEASTHTTP_BASE_IMPL_DETECT_HXX
 #define BEASTHTTP_BASE_IMPL_DETECT_HXX
 
 #include <boost/beast/core/detect_ssl.hpp>

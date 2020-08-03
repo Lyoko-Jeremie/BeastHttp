@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_REACTOR_IMPL_SESSION_HXX
+#ifndef BEASTHTTP_REACTOR_IMPL_SESSION_HXX
 #define BEASTHTTP_REACTOR_IMPL_SESSION_HXX
 
 #include <http/base/config.hxx>

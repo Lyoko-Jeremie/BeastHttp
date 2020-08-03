@@ -1,4 +1,4 @@
-#if not defined BEASTHTTP_BASE_LOCKABLE_HXX
+#ifndef BEASTHTTP_BASE_LOCKABLE_HXX
 #define BEASTHTTP_BASE_LOCKABLE_HXX
 
 #include <http/base/config.hxx>
