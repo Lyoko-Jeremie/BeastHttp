@@ -22,7 +22,7 @@
 #include <boost/beast/http/string_body.hpp>
 #include <memory>
 
-#if defined BEASTHTTP_CXX17_OPTIONAL
+#ifdef BEASTHTTP_CXX17_OPTIONAL
 #include <optional>
 #else
 #include <boost/optional.hpp>
@@ -356,7 +356,7 @@ private:
         on_error_type on_error_;
         on_timer_type on_timer_;
 
-#if defined BEASTHTTP_CXX17_OPTIONAL
+#ifdef BEASTHTTP_CXX17_OPTIONAL
         std::optional<request_parser_type> parser_;
         std::optional<response_serializer_type> serializer_;
 #else

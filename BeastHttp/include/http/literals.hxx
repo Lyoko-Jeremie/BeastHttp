@@ -48,7 +48,7 @@ namespace http {
 namespace literals {
 namespace detail {
 
-#if defined BEASTHTTP_CXX14_CONSTEXPR
+#ifdef BEASTHTTP_CXX14_CONSTEXPR
 constexpr int toInt(char c)
 {
     if (c >= 'A' and c <= 'F') {
@@ -176,7 +176,7 @@ BEASTHTTP_LITERALS_DECLARE_ROUTE_STRUCT
 
 } // namespace detail
 
-#if defined BEASTHTTP_CXX14_CONSTEXPR
+#ifdef BEASTHTTP_CXX14_CONSTEXPR
 template<char... cs>
 constexpr auto operator"" _c()
 {

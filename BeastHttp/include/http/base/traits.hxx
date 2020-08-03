@@ -407,7 +407,7 @@ constexpr auto isValid(F&&)
 }
 #endif // BEASTHTTP_CXX14_GENERIC_LAMBDAS
 
-#if defined BEASTHTTP_CXX14_GENERIC_LAMBDAS
+#ifdef BEASTHTTP_CXX14_GENERIC_LAMBDAS
 template<class R, class F, class... Args>
 constexpr auto tryInvoke(F&& f, Args&&... args)
 {

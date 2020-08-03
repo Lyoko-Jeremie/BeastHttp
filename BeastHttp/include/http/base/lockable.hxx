@@ -5,7 +5,7 @@
 
 #include <boost/core/ignore_unused.hpp>
 
-#if defined BEASTHTTP_CXX17_SHARED_MUTEX
+#ifdef BEASTHTTP_CXX17_SHARED_MUTEX
 #include <mutex>
 #include <shared_mutex>
 #else
@@ -27,7 +27,7 @@ namespace base {
 
 struct lockable
 {
-#if defined BEASTHTTP_CXX17_SHARED_MUTEX
+#ifdef BEASTHTTP_CXX17_SHARED_MUTEX
     using mutex_type = std::shared_mutex;
 
     using shared_lock_type = std::shared_lock<mutex_type>;
@@ -53,7 +53,7 @@ struct lockable
         return unique_lock_type(mutex);
     }
 
-#if defined BEASTHTTP_CXX17_SHARED_MUTEX
+#ifdef BEASTHTTP_CXX17_SHARED_MUTEX
     static auto
     enter_to_write(mutex_type& mutex_1, mutex_type& mutex_2)
     {

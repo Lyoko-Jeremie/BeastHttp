@@ -46,7 +46,7 @@ public:
     request_processor(std::shared_ptr<resource_map_type> const&,
                       std::shared_ptr<method_map_type> const&,
                       typename regex_type::flag_type);
-#if defined BEASTHTTP_TEST_ROUTER
+#ifdef BEASTHTTP_TEST_ROUTER
     void
     provide(request_type&&, session_flesh&&);
 #endif // defined BEASTHTTP_TEST_ROUTER
